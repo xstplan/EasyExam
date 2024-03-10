@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XST.Exam.Android", "XST.Exa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XST.Exam.Desktop", "XST.Exam.Desktop\XST.Exam.Desktop.csproj", "{9F8DD2FF-7485-4CB7-B37C-7CE7A97C890D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XST.Service", "XST.Service\XST.Service.csproj", "{606C63EC-0E79-4236-B741-ABF5CDB1A015}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XST.Model", "XST.Model\XST.Model.csproj", "{60ABC998-5737-4CF7-A52F-55EEBABFE15D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,14 @@ Global
 		{9F8DD2FF-7485-4CB7-B37C-7CE7A97C890D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F8DD2FF-7485-4CB7-B37C-7CE7A97C890D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F8DD2FF-7485-4CB7-B37C-7CE7A97C890D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{606C63EC-0E79-4236-B741-ABF5CDB1A015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{606C63EC-0E79-4236-B741-ABF5CDB1A015}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{606C63EC-0E79-4236-B741-ABF5CDB1A015}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{606C63EC-0E79-4236-B741-ABF5CDB1A015}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60ABC998-5737-4CF7-A52F-55EEBABFE15D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60ABC998-5737-4CF7-A52F-55EEBABFE15D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60ABC998-5737-4CF7-A52F-55EEBABFE15D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60ABC998-5737-4CF7-A52F-55EEBABFE15D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
