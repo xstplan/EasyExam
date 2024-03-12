@@ -5,9 +5,12 @@
     xmlns:sukiUi="clr-namespace:SukiUI;assembly=SukiUI"
     RequestedThemeVariant="Default">
     <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
-
+    <Application.Resources>
+        <FontFamily x:Key="GlobalFont">avares://XST.Exam/Assets/Fonts/Deng.ttf#DengXian</FontFamily>
+    </Application.Resources>
     <Application.Styles>
         <sukiUi:SukiTheme ThemeColor="Green" />
+        <StyleInclude Source="avares://XST.Exam/Styles/BaseStyles.axaml" />
 
     </Application.Styles>
 

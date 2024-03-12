@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using XST.Exam.Message;
+using XST.Exam.Model;
 using XST.Exam.ViewModels.Page;
 using XST.Exam.Views.Controls;
 using XST.Service.Service.IService;
@@ -17,15 +18,18 @@ namespace XST.Exam.ViewModels.Controls
 {
     public partial class WordStartViewModel : ObservableObject
     {
-        public WordStartViewModel(ITestModelService testModelService)
+        public WordStartViewModel()
         {
 
         }
         [RelayCommand]
         private void Go()
         {
+            WordConfig.NumberTimes = 5;
             WeakReferenceMessenger.Default.Send(new WordTrainMessage(new WordRun()));
             WeakReferenceMessenger.Default.Send(new LockMenuMessage(false));
+          
+
         }
     }
 }

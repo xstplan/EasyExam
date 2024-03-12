@@ -8,11 +8,14 @@
     xmlns:views="clr-namespace:XST.Exam.Views.Page"
     xmlns:vm="using:XST.Exam.ViewModels"
     Title="EASY EXAM"
-    MaxWidth="1200"
-    MaxHeight="800"
+    MinWidth="1200"
+    MinHeight="800"
     d:DesignHeight="800"
     d:DesignWidth="1200"
+	suki:SukiHost.ToastLimit="4"
+                    suki:SukiHost.ToastLocation="BottomRight"
     Icon="/Assets/logo.ico"
+    ShowActivated="True"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 

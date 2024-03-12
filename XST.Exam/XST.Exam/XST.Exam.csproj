@@ -9,13 +9,6 @@
   
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" />
-    <AvaloniaResource Remove="Assets\Fonts\SourceHanSansCN-Bold.otf" />
-    <AvaloniaResource Remove="Assets\Fonts\SourceHanSansCN-ExtraLight.otf" />
-    <AvaloniaResource Remove="Assets\Fonts\SourceHanSansCN-Heavy.otf" />
-    <AvaloniaResource Remove="Assets\Fonts\SourceHanSansCN-Medium.otf" />
-    <AvaloniaResource Remove="Assets\Fonts\SourceHanSansCN-Normal.otf" />
-    <AvaloniaResource Remove="Assets\Fonts\SourceHanSansCN-Regular.otf" />
-    <None Remove="Assets\Fonts\JustFont.ttf" />
   </ItemGroup>
 
   
@@ -26,6 +19,7 @@
 
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.0.6" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.0.6" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
@@ -46,7 +40,7 @@
 
   <ItemGroup>
 
-    <Folder Include="Common\" />   
+    <Folder Include="Assets\Fonts\" />   
     <Folder Include="DataBase\" />
   </ItemGroup>
 

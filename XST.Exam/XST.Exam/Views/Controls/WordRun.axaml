@@ -8,34 +8,90 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+    <UserControl.Styles>
+        <Style Selector="Grid">
+            <Setter Property="Opacity" Value="1" />
+            <Style.Animations>
+                <Animation IterationCount="1" Duration="0:0:1">
+                    <KeyFrame Cue="0%">
+                        <Setter Property="Opacity" Value="0.0" />
+
+                    </KeyFrame>
+                    <KeyFrame Cue="100%">
+                        <Setter Property="Opacity" Value="1.0" />
+
+                    </KeyFrame>
+                </Animation>
+            </Style.Animations>
+        </Style>
+    </UserControl.Styles>
     <Grid Margin="50">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.8*" />
-            <RowDefinition Height="0.1*" />
-            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="0.9*" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-
         <suki:GlassCard>
-            <StackPanel VerticalAlignment="Center" Orientation="Vertical">
+            <DockPanel Grid.Row="0">
                 <Label
-                    HorizontalAlignment="Center"
-                    FontFamily="{StaticResource SansCN}"
-                    FontSize="25">
-                    请写出内容：
-                </Label>
-                <Label HorizontalAlignment="Center" FontSize="25">请写出内容：</Label>
-
-                <TextBox Grid.Row="1" />
-            </StackPanel>
+                    Content="{Binding NumberTimes}"
+                    DockPanel.Dock="Right"
+                    FontSize="25" />
+                <Label
+                    Content="/"
+                    DockPanel.Dock="Right"
+                    FontSize="25" />
+                <Label
+                    Content="{Binding CurrentnumberTimes}"
+                    DockPanel.Dock="Right"
+                    FontSize="25" />
+                <Border />
+            </DockPanel>
         </suki:GlassCard>
-        <Button
-            Grid.Row="2"
-            Height="60"
-            Classes="Flat Rounded"
-            Command="{Binding GoCommand}"
-            Content="记单词" />
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.8*" />
+                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <suki:GlassCard>
+                <StackPanel VerticalAlignment="Center" Orientation="Vertical">
+
+                    <Label
+                        HorizontalAlignment="Center"
+                        Content="{Binding CurrentMeaning}"
+                        FontSize="25"
+                        FontWeight="Bold" />
+                    <ContentControl Name="StackControl" Content="{Binding StackControlContet, Mode=TwoWay}" />
+
+
+
+                    <Label
+                        Height="50"
+                        HorizontalAlignment="Center"
+                        Content="{Binding ElementName=WordRun_TextBox, Path=Text}"
+                        FontSize="25"
+                        FontWeight="Bold" />
+                    <TextBox
+                        Name="WordRun_TextBox"
+                        Height="50"
+                        FontSize="30"
+                        Text="{Binding UserAnswer, Mode=TwoWay}"
+                        Watermark="填写内容" />
+                </StackPanel>
+            </suki:GlassCard>
+            <Button
+                Grid.Row="2"
+                Height="60"
+                Classes="Flat Rounded"
+                Command="{Binding GoCommand}"
+                Content="确认答案"
+                IsDefault="True" />
+
+        </Grid>
     </Grid>
 </UserControl>

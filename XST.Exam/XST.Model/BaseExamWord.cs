@@ -19,26 +19,27 @@ namespace XST.Model
         /// <summary>
         /// 设置单词
         /// </summary>
-        public string Term { get; set; }
+
+        public string? Term { get; set; }
 
         /// <summary>
         /// 单词的定义。
         /// </summary>
-        public string Definition { get; set; }
-
+        public string? Definition { get; set; }
+        [SugarColumn(IsNullable = true)]
         /// <summary>
         /// 类别
         /// </summary>
-        public string Category { get; set; }
-
+        public string? Category { get; set; }
+        [SugarColumn(IsNullable = true)]
         /// <summary>
         /// 表示单词的词性枚举，其中1表示名词，2表示动词，3表示形容词，4表示副词，5表示代词，6表示介词，7表示连词，8表示感叹词，9表示其他。
         /// </summary>
-        public string PartOfSpeech { get; set; }
-
+        public string? PartOfSpeech { get; set; }
+        [SugarColumn(IsNullable = true)]
         /// <summary>
         /// 单词创建时间。
         /// </summary>
-        public DateTime CreatedAt { get; set; }
+        public DateTime? CreatedAt { get; set; }
     }
 }

@@ -15,8 +15,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-
-
+using XST.Exam.Common;
 using XST.Exam.ViewModels;
 using XST.Exam.ViewModels.Controls;
 using XST.Exam.ViewModels.Page;
@@ -87,7 +86,10 @@ public partial class App : Application
 
         services.AddTransient<ITestModelService, TestModelService>();
         services.AddTransient<IBaseBaseExamWordService, BaseBaseExamWordService>();
+      
 
+
+        //Viewmodel
         services.AddTransient<MainViewModel>();
         services.AddTransient<WordTrainViewModel>();
         services.AddTransient<WordTrainViewModel>();
