@@ -37,8 +37,9 @@
   </ItemGroup>
 
   <ItemGroup>
+
+    <Folder Include="Common\" />   
     <Folder Include="DataBase\" />
-    <Folder Include="Views\Controls\" />
   </ItemGroup>
 
   <ItemGroup>

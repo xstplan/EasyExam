@@ -1,0 +1,14 @@
+@startmindmap 功能总模块
+
+title 功能总模块
+'!theme carbon-gray 
+'https://the-lum.github.io/puml-themes-gallery/#carbon-gray
+
+- 总模块
+-- 单词练习
+--- 开始单词练习
+---- 完成练习
+
+-- 单词添加
+
+@endmindmap

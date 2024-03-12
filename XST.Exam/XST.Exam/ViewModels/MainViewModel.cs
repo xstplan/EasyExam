@@ -1,4 +1,6 @@
-﻿using XST.Model;
+﻿using Microsoft.Extensions.DependencyInjection;
+
+using XST.Model;
 using XST.Service.Service.IService;
 
 namespace XST.Exam.ViewModels;
@@ -12,10 +14,10 @@ public partial class MainViewModel : ViewModelBase
     public MainViewModel()
     {
 
-        TestModelService = App.GetService<ITestModelService>();
+        TestModelService =App.Current.Services.GetService<ITestModelService>();
 
-        //TestModel testModel=new TestModel();
-        //testModel.Name= "Test";
-        //TestModelService.CreateTest(testModel);
+        TestModel testModel = new TestModel();
+        testModel.Name = "Test22";
+        TestModelService.CreateTest(testModel);
     }
 }
