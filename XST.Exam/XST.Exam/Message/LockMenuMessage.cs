@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 namespace XST.Exam.Message
 {
     /// <summary>
-    /// 单词训练
+    /// 锁定窗口
     /// </summary>
-    public class WordTrainMessage : ValueChangedMessage<object>
+    public class LockMenuMessage : ValueChangedMessage<bool>
     {
-        public WordTrainMessage(object value) : base(value)
+        public LockMenuMessage(bool value) : base(value)
         {
         }
     }

@@ -4,8 +4,38 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <Label Content="111" />
+    <Grid Margin="50">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.8*" />
+            <RowDefinition Height="0.1*" />
+            <RowDefinition Height="0.1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <suki:GlassCard>
+            <StackPanel VerticalAlignment="Center" Orientation="Vertical">
+                <Label
+                    HorizontalAlignment="Center"
+                    FontFamily="{StaticResource SansCN}"
+                    FontSize="25">
+                    请写出内容：
+                </Label>
+                <Label HorizontalAlignment="Center" FontSize="25">请写出内容：</Label>
+
+                <TextBox Grid.Row="1" />
+            </StackPanel>
+        </suki:GlassCard>
+        <Button
+            Grid.Row="2"
+            Height="60"
+            Classes="Flat Rounded"
+            Command="{Binding GoCommand}"
+            Content="记单词" />
+    </Grid>
 </UserControl>

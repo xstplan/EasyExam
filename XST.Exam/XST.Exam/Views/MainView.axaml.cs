@@ -15,4 +15,8 @@ public partial class MainView : SukiWindow
         InitializeComponent();
         this.DataContext = App.Current.Services.GetService<MainViewModel>();
     }
+
+    private void Binding(object? sender, Avalonia.Input.KeyEventArgs e)
+    {
+    }
 }

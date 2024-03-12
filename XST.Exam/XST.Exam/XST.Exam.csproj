@@ -9,11 +9,19 @@
   
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" />
+    <AvaloniaResource Remove="Assets\Fonts\SourceHanSansCN-Bold.otf" />
+    <AvaloniaResource Remove="Assets\Fonts\SourceHanSansCN-ExtraLight.otf" />
+    <AvaloniaResource Remove="Assets\Fonts\SourceHanSansCN-Heavy.otf" />
+    <AvaloniaResource Remove="Assets\Fonts\SourceHanSansCN-Medium.otf" />
+    <AvaloniaResource Remove="Assets\Fonts\SourceHanSansCN-Normal.otf" />
+    <AvaloniaResource Remove="Assets\Fonts\SourceHanSansCN-Regular.otf" />
+    <None Remove="Assets\Fonts\JustFont.ttf" />
   </ItemGroup>
 
   
   <ItemGroup>
     <Content Include="Assets\logo.ico" />
+    
   </ItemGroup>
 
   <ItemGroup>

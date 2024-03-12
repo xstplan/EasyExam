@@ -25,7 +25,7 @@ namespace XST.Exam.ViewModels.Controls
         private void Go()
         {
             WeakReferenceMessenger.Default.Send(new WordTrainMessage(new WordRun()));
-
+            WeakReferenceMessenger.Default.Send(new LockMenuMessage(false));
         }
     }
 }

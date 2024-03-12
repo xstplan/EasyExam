@@ -21,7 +21,7 @@ namespace XST.Exam.ViewModels.Page
     public partial class WordTrainViewModel : ViewModelBase
     {
         [ObservableProperty]
-        private object stackControlContet=null;
+        private object stackControlContet = null;
 
         private ITestModelService TestModelService { get; set; }
         public WordTrainViewModel(ITestModelService testModelService)
@@ -40,10 +40,10 @@ namespace XST.Exam.ViewModels.Page
             StackControlContet = message.Value as UserControl;
 
         }
-
        
+
         [RelayCommand]
-        private void Go() 
+        private void Go()
         {
             StackControlContet = new WordRun();
         }

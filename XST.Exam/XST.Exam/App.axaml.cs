@@ -88,6 +88,7 @@ public partial class App : Application
         services.AddTransient<ITestModelService, TestModelService>();
         services.AddTransient<IBaseBaseExamWordService, BaseBaseExamWordService>();
 
+        services.AddTransient<MainViewModel>();
         services.AddTransient<WordTrainViewModel>();
         services.AddTransient<WordTrainViewModel>();
         services.AddTransient<AddWordViewModel>();
