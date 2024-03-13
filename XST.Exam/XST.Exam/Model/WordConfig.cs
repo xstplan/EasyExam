@@ -15,6 +15,6 @@ namespace XST.Exam.Model
         /// <summary>
         /// 间隔颜色
         /// </summary>
-        public static int WordOffset { get; set; } = 4;
+        public static int WordOffset { get; set; } = 2;
     }
 }

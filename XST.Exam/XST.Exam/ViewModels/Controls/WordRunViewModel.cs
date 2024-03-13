@@ -81,16 +81,21 @@ namespace XST.Exam.ViewModels.Controls
                     _examWordsResponse.Data[n] = value;
                 }
 
-                _runExamWordsList = _examWordsResponse.Data.Take(numberTimes).ToList();
+                _runExamWordsList = _examWordsResponse.Data.Take(NumberTimes).ToList();
 
                 if (_runExamWordsList.Count > 0)
                 {
-                    if (_runExamWordsList.Count < numberTimes)
+                    if (_runExamWordsList.Count < NumberTimes)
                     {
-                        numberTimes = _runExamWordsList.Count;
+                        NumberTimes = _runExamWordsList.Count;
                     }
                     WordGenerator();
                 }
+            }
+            else
+            {
+                SukiHost.ShowToast("提示", "(*/ω＼*)没有单词数据", TimeSpan.FromSeconds(5), () => Console.WriteLine("Toast clicked !"));
+
             }
         }
         private void WordGenerator()

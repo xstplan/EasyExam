@@ -12,7 +12,7 @@
     MinHeight="800"
     d:DesignHeight="800"
     d:DesignWidth="1200"
-	suki:SukiHost.ToastLimit="4"
+	suki:SukiHost.ToastLimit="1"
                     suki:SukiHost.ToastLocation="BottomRight"
     Icon="/Assets/logo.ico"
     ShowActivated="True"

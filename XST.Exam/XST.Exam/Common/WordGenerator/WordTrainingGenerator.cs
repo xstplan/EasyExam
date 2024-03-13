@@ -11,6 +11,10 @@ using System.Windows;
 using XST.Exam.Model;
 namespace XST.Exam.Common.WordGenerator.WordGenerator
 {
+
+    /// <summary>
+    /// 显示全部，写出单词
+    /// </summary>
     public class WordTrainingGenerator: ITrainingGenerator
     {
         private static Random random = new Random();
