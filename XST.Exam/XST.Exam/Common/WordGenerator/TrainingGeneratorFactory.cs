@@ -28,12 +28,14 @@ namespace XST.Exam.Common.WordGenerator
             switch (difficulty)
             {
                 case 1:
-                    return CreateGenerator(typeof(WordTrainingGenerator));
+                    return CreateGenerator(typeof(RandomWordGenerator));
+                 
                 case 2:
                     return CreateGenerator(typeof(WordTrainingGenerator));
-                //添加更多提高难度
+                case 3:
+                    return CreateGenerator(typeof(WritingWordsGenerator));
                 default:
-                    return CreateGenerator(typeof(WordTrainingGenerator));
+                    return CreateGenerator(typeof(WritingWordsGenerator));
             }
         }
         private static ITrainingGenerator CreateGenerator(Type generatorType)

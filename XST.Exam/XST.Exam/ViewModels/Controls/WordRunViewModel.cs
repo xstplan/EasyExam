@@ -18,6 +18,7 @@ using XST.Model;
 using XST.Exam.Common.WordGenerator;
 using Avalonia.Controls;
 using SukiUI.Controls;
+using Avalonia.Media;
 namespace XST.Exam.ViewModels.Controls
 {
     public partial class WordRunViewModel : ViewModelBase
@@ -50,12 +51,26 @@ namespace XST.Exam.ViewModels.Controls
         [ObservableProperty]
         private string currentMeaning = "请输入答案：";
 
+        [ObservableProperty]
+        private SolidColorBrush userAnswerFontColor=new SolidColorBrush(Colors.Black);
         /// <summary>
         /// 输入答案
         /// </summary>
-        [ObservableProperty]
-        private string userAnswer = "";
+        private string _userAnswer="";
+        public string UserAnswer
+        {
+            get => _userAnswer;
+            set
+            {
+                if (SetProperty(ref _userAnswer, value)) // 设置属性值并检查是否有改变
+                {
+                    // 如果属性值发生改变，则执行颜色逻辑处理
+                    CheckAnswer(_userAnswer);
 
+
+                }
+            }
+        }
         private readonly IBaseBaseExamWordService _baseBaseExamWordService;
 
         private List<BaseExamWord> _runExamWordsList = new List<BaseExamWord>();
@@ -72,6 +87,7 @@ namespace XST.Exam.ViewModels.Controls
             {
                 Random random = new Random();
                 int n = _examWordsResponse.Data.Count;
+                //筛选去重
                 while (n > 1)
                 {
                     n--;
@@ -98,8 +114,25 @@ namespace XST.Exam.ViewModels.Controls
 
             }
         }
+        
+        public void CheckAnswer(string thisUserAnswer) 
+        {
+            if (thisUserAnswer == CurrentWordAnswer)
+            {
+                UserAnswerFontColor = new SolidColorBrush(Colors.Green);
+            }
+            else
+            {
+                UserAnswerFontColor = new SolidColorBrush(Colors.Black);
+            }
+        
+        }
+        /// <summary>
+        /// 生成单词规则器
+        /// </summary>
         private void WordGenerator()
         {
+            UserAnswerFontColor = new SolidColorBrush(Colors.Black);
             ITrainingGenerator _trainingGenerator = TrainingGeneratorFactory.GetRandomGenerator(1, 1);
             var result = _trainingGenerator.GenerateTrainingPanel(_runExamWordsList[CurrentnumberTimes - 1].Term, _runExamWordsList[CurrentnumberTimes - 1].Definition);
             StackControlContet = result.Item1;
@@ -111,7 +144,7 @@ namespace XST.Exam.ViewModels.Controls
         {
             if (CurrentnumberTimes >= NumberTimes)
             {
-                WeakReferenceMessenger.Default.Send(new WordTrainMessage(new WordStart()));
+                Exit();
             }
             else
             {
@@ -126,6 +159,12 @@ namespace XST.Exam.ViewModels.Controls
                     SukiHost.ShowToast("提示", "(*/ω＼*)你填错了", TimeSpan.FromSeconds(5), () => Console.WriteLine("Toast clicked !"));
                 }
             }
+        }
+        [RelayCommand]
+        public void Exit() 
+        {
+            WeakReferenceMessenger.Default.Send(new LockMenuMessage(true));
+            WeakReferenceMessenger.Default.Send(new WordTrainMessage(new WordStart()));
         }
     }
 }

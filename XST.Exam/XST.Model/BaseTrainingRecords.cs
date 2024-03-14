@@ -22,8 +22,6 @@ namespace XST.Model
         /// </summary>
         [SugarColumn(IsNullable = true)]
         public string? TypeId { get; set; }
-
-
         /// <summary>
         /// 训练的内容Id，如单词：苹果Id为1，那么TrainingId也是1
         /// </summary>
@@ -35,7 +33,6 @@ namespace XST.Model
         /// </summary>
         [SugarColumn(IsNullable = true)]
         public int? DifficultyLevel { get; set; }
-
 
         /// <summary>
         /// 次数
@@ -53,6 +50,12 @@ namespace XST.Model
         /// </summary>
         [SugarColumn(IsNullable = true)]
         public int? ErrorNumber { get; set; }
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        [SugarColumn(IsNullable = true)]
+        public DateTime CreateDateTime { get; set; }
+
 
     }
 
