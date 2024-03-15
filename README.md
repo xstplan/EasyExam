@@ -13,3 +13,4 @@
 
 - CommunityToolkit
 > https://github.com/CommunityToolkit/dotnet
+> https://github.com/kikipoulet/SukiUI/wiki
