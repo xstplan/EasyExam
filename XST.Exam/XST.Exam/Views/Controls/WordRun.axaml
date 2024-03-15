@@ -31,16 +31,16 @@
             <RowDefinition Height="0.9*" />
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0">
-			<Button
-				Command="{Binding Exit}"
+            <Button
                 Classes="Outlined"
+                Command="{Binding Exit}"
                 Content="退出训练"
                 DockPanel.Dock="Right" />
 
 
             <Border />
         </DockPanel>
-        <Grid Grid.Row="1" Margin="30">
+        <Grid Grid.Row="1" Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="0.9*" />

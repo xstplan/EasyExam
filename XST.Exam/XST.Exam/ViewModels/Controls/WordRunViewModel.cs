@@ -77,14 +77,12 @@ namespace XST.Exam.ViewModels.Controls
 
         public WordRunViewModel(IBaseBaseExamWordService baseBaseExamWordService)
         {
-
             _baseBaseExamWordService = baseBaseExamWordService;
-            NumberTimes = WordConfig.NumberTimes;
-            CurrentnumberTimes = 1;
-
             var _examWordsResponse = _baseBaseExamWordService.GetAllBaseExamWords();
             if (_examWordsResponse.Success)
             {
+                NumberTimes = WordConfig.NumberTimes;
+                CurrentnumberTimes = 1;
                 Random random = new Random();
                 int n = _examWordsResponse.Data.Count;
                 //筛选去重
@@ -110,14 +108,17 @@ namespace XST.Exam.ViewModels.Controls
             }
             else
             {
-                SukiHost.ShowToast("提示", "(*/ω＼*)没有单词数据", TimeSpan.FromSeconds(5), () => Console.WriteLine("Toast clicked !"));
+                NumberTimes = 0;
+                Exit();
 
+                SukiHost.ShowDialog("(*/ω＼*)没有单词数据",true,true);
+              //  SukiHost.ShowToast("提示", "(*/ω＼*)没有单词数据", TimeSpan.FromSeconds(5), () => Console.WriteLine("Toast clicked !"));
             }
         }
         
         public void CheckAnswer(string thisUserAnswer) 
         {
-            if (thisUserAnswer == CurrentWordAnswer)
+            if (thisUserAnswer.ToLower() == CurrentWordAnswer.ToLower())
             {
                 UserAnswerFontColor = new SolidColorBrush(Colors.Green);
             }
@@ -133,7 +134,7 @@ namespace XST.Exam.ViewModels.Controls
         private void WordGenerator()
         {
             UserAnswerFontColor = new SolidColorBrush(Colors.Black);
-            ITrainingGenerator _trainingGenerator = TrainingGeneratorFactory.GetRandomGenerator(1, 1);
+            ITrainingGenerator _trainingGenerator = TrainingGeneratorFactory.GetRandomGenerator(1, 2);
             var result = _trainingGenerator.GenerateTrainingPanel(_runExamWordsList[CurrentnumberTimes - 1].Term, _runExamWordsList[CurrentnumberTimes - 1].Definition);
             StackControlContet = result.Item1;
             CurrentWordAnswer = result.Item2;

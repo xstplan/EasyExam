@@ -56,7 +56,11 @@ namespace XST.Model
         [SugarColumn(IsNullable = true)]
         public DateTime CreateDateTime { get; set; }
 
-
+        /// <summary>
+        /// 是否牢记
+        /// </summary>
+        [SugarColumn(IsNullable = true)]
+        public bool Islearn { get; set; }
     }
 
 }

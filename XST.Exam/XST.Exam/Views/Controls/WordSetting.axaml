@@ -4,8 +4,75 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:suki="clr-namespace:SukiUI.Controls;assembly=SukiUI"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" />
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*" />
+                <RowDefinition Height="0.9*" />
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Row="0">
+                <Button
+                    Classes="Outlined"
+                    Command="{Binding Exit}"
+                    Content="返回"
+                    DockPanel.Dock="Right" />
+
+                <Border />
+            </DockPanel>
+
+            <suki:GlassCard Grid.Row="1" Margin="10">
+                <TabControl>
+                    <TabItem Header="单词设置" />
+                    <TabItem Header="词库选择">
+                        <WrapPanel Margin="10" Orientation="Horizontal">
+
+                            <RadioButton
+                                Width="200"
+                                Height="60"
+                                Classes="GigaChips"
+                                GroupName="1">
+                                <Label>aaaa</Label>
+                            </RadioButton>
+                            <RadioButton
+                                Width="200"
+                                Height="60"
+                                Classes="GigaChips"
+                                GroupName="1">
+                                <Label>aaaa</Label>
+                            </RadioButton>
+
+                            <RadioButton
+                                Width="200"
+                                Height="60"
+                                Classes="GigaChips"
+                                GroupName="1">
+                                <Label>aaaa</Label>
+                            </RadioButton>
+                            <RadioButton
+                                Width="200"
+                                Height="60"
+                                Classes="GigaChips"
+                                GroupName="1">
+                                <Label>aaaa</Label>
+                            </RadioButton>
+                            <RadioButton
+                                Width="200"
+                                Height="60"
+                                Classes="GigaChips"
+                                GroupName="1">
+                                <Label>aaaa</Label>
+                            </RadioButton>
+                        </WrapPanel>
+
+                    </TabItem>
+
+                </TabControl>
+            </suki:GlassCard>
+        </Grid>
+
+    </Grid>
 </UserControl>

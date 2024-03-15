@@ -20,6 +20,7 @@ using XST.Exam.ViewModels;
 using XST.Exam.ViewModels.Controls;
 using XST.Exam.ViewModels.Page;
 using XST.Exam.Views;
+using XST.Exam.Views.Controls;
 using XST.Service;
 using XST.Service.Repository;
 using XST.Service.Service;
@@ -97,7 +98,7 @@ public partial class App : Application
         services.AddTransient<WordStartViewModel>();
         services.AddTransient<WordRunViewModel>();
         services.AddTransient<WordEndViewModel>();
-
+        services.AddTransient<WordSettingViewModel>();
 
 
         return services.BuildServiceProvider();

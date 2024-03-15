@@ -33,7 +33,7 @@ namespace XST.Exam.Common.WordGenerator
                 HorizontalAlignment = HorizontalAlignment.Center
             };
       
-            meaning = string.Format("请补充\"{0}\" ",meaning );
+            meaning = string.Format("请补充\"{0}\" 的英文",meaning );
            var textBlock1 = CreateColoredTextBlock();
             textBlock1.Text = string.Format("单词:");
 

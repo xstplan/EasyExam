@@ -31,5 +31,10 @@ namespace XST.Exam.ViewModels.Controls
           
 
         }
+        [RelayCommand]
+        private void GoSetting()
+        {
+            WeakReferenceMessenger.Default.Send(new WordTrainMessage(new WordSetting()));
+        }
     }
 }

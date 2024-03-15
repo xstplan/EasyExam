@@ -20,6 +20,8 @@ namespace XST.Service
             db.DbMaintenance.CreateDatabase();
             db.CodeFirst.InitTables(typeof(TestModel));
             db.CodeFirst.InitTables(typeof(BaseExamWord));
+            db.CodeFirst.InitTables(typeof(BaseTrainingRecords));
+            
         }
     }
 }
