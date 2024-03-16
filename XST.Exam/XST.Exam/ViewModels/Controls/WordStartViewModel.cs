@@ -16,7 +16,7 @@ using XST.Service.Service.IService;
 
 namespace XST.Exam.ViewModels.Controls
 {
-    public partial class WordStartViewModel : ObservableObject
+    public partial class WordStartViewModel : WordViewModel
     {
         public WordStartViewModel()
         {

@@ -22,10 +22,18 @@
             <Border Height="20" />
             <Button
                 Height="60"
-                Background="#228C6A"
+                Background="#3B8F6B"
                 Classes="Flat Rounded"
                 Command="{Binding GoSettingCommand}"
-                Content="设置"
+                Content="单词设置"
+                Foreground="Black" />
+            <Border Height="20" />
+            <Button
+                Height="60"
+                Background="#068F84"
+                Classes="Flat Rounded"
+                Command="{Binding GoSettingCommand}"
+                Content="添加单词"
                 Foreground="Black" />
         </StackPanel>
     </Grid>

@@ -11,7 +11,7 @@ using XST.Service.Service.IService;
 
 namespace XST.Exam.ViewModels.Controls
 {
-    public class WordEndViewModel :ViewModelBase
+    public class WordEndViewModel : WordViewModel
     {
         public WordEndViewModel()
         {

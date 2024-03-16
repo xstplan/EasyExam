@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace XST.Exam.ViewModels.Controls
 {
-    public class WordSettingViewModel : ViewModelBase
+    public class WordSettingViewModel : WordViewModel
     {
 
     }

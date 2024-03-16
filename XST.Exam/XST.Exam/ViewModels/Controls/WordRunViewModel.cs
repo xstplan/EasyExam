@@ -21,7 +21,7 @@ using SukiUI.Controls;
 using Avalonia.Media;
 namespace XST.Exam.ViewModels.Controls
 {
-    public partial class WordRunViewModel : ViewModelBase
+    public partial class WordRunViewModel : WordViewModel
     {
         /// <summary>
         /// 所有次数
@@ -75,6 +75,7 @@ namespace XST.Exam.ViewModels.Controls
 
         private List<BaseExamWord> _runExamWordsList = new List<BaseExamWord>();
 
+
         public WordRunViewModel(IBaseBaseExamWordService baseBaseExamWordService)
         {
             _baseBaseExamWordService = baseBaseExamWordService;
@@ -115,7 +116,10 @@ namespace XST.Exam.ViewModels.Controls
               //  SukiHost.ShowToast("提示", "(*/ω＼*)没有单词数据", TimeSpan.FromSeconds(5), () => Console.WriteLine("Toast clicked !"));
             }
         }
-        
+        /// <summary>
+        /// 检查是否和答案一致
+        /// </summary>
+        /// <param name="thisUserAnswer"></param>
         public void CheckAnswer(string thisUserAnswer) 
         {
             if (thisUserAnswer.ToLower() == CurrentWordAnswer.ToLower())
@@ -140,6 +144,10 @@ namespace XST.Exam.ViewModels.Controls
             CurrentWordAnswer = result.Item2;
             CurrentMeaning = result.Item3;
         }
+
+        /// <summary>
+        /// 下一个提示词
+        /// </summary>
         [RelayCommand]
         public void Go()
         {
@@ -161,11 +169,6 @@ namespace XST.Exam.ViewModels.Controls
                 }
             }
         }
-        [RelayCommand]
-        public void Exit() 
-        {
-            WeakReferenceMessenger.Default.Send(new LockMenuMessage(true));
-            WeakReferenceMessenger.Default.Send(new WordTrainMessage(new WordStart()));
-        }
+      
     }
 }

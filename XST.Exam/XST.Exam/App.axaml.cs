@@ -94,7 +94,7 @@ public partial class App : Application
         services.AddTransient<MainViewModel>();
         services.AddTransient<WordTrainViewModel>();
         services.AddTransient<WordTrainViewModel>();
-        services.AddTransient<AddWordViewModel>();
+        services.AddTransient<WordAddViewModel>();
         services.AddTransient<WordStartViewModel>();
         services.AddTransient<WordRunViewModel>();
         services.AddTransient<WordEndViewModel>();
