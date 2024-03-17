@@ -26,7 +26,21 @@
 
             <suki:GlassCard Grid.Row="1" Margin="10">
                 <TabControl>
-                    <TabItem Header="单词设置" />
+                    <TabItem Header="单词设置">
+                        <StackPanel Margin="10">
+                            <StackPanel Margin="10" Orientation="Horizontal">
+                                <TextBlock VerticalAlignment="Center" Text="练习次数：" />
+                                <TextBox
+                                    x:Name="NameTextBox"
+                                    Width="150"
+                                    Margin="5,0,0,0" />
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </TabItem>
+
+
                     <TabItem Header="词库选择">
                         <WrapPanel Margin="10" Orientation="Horizontal">
 
