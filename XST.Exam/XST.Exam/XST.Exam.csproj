@@ -45,6 +45,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Config\config.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="DataBase\EE.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

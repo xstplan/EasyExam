@@ -16,6 +16,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using XST.Exam.Common;
+using XST.Exam.Helper;
+using XST.Exam.Model;
 using XST.Exam.ViewModels;
 using XST.Exam.ViewModels.Controls;
 using XST.Exam.ViewModels.Page;
@@ -55,12 +57,14 @@ public partial class App : Application
         // 根据应用程序生命周期类型设置主窗口
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
+       
             desktop.MainWindow = new MainView();
 
         }
         // 调用基类的框架初始化完成方法
         base.OnFrameworkInitializationCompleted();
     }
+    
     private static ServiceProvider ConfigureServices()
     {
 

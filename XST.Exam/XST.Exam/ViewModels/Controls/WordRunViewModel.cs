@@ -79,10 +79,20 @@ namespace XST.Exam.ViewModels.Controls
         public WordRunViewModel(IBaseBaseExamWordService baseBaseExamWordService)
         {
             _baseBaseExamWordService = baseBaseExamWordService;
-            var _examWordsResponse = _baseBaseExamWordService.GetAllBaseExamWords();
+            Service.ToResponse<List<BaseExamWord>> _examWordsResponse = new Service.ToResponse<List<BaseExamWord>>();
+            if (WordConfig.Category == "全部")
+            {
+                _examWordsResponse = _baseBaseExamWordService.GetAllBaseExamWords();
+            }
+            else
+            {
+                _examWordsResponse = _baseBaseExamWordService.Where(a=>a.Category== WordConfig.Category);
+            }
             if (_examWordsResponse.Success)
             {
                 NumberTimes = WordConfig.NumberTimes;
+               
+                //_examWordsResponse.Data
                 CurrentnumberTimes = 1;
                 Random random = new Random();
                 int n = _examWordsResponse.Data.Count;

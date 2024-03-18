@@ -29,58 +29,47 @@
                     <TabItem Header="单词设置">
                         <StackPanel Margin="10">
                             <StackPanel Margin="10" Orientation="Horizontal">
-                                <TextBlock VerticalAlignment="Center" Text="练习次数：" />
+                                <TextBlock VerticalAlignment="Center" Text="练习单词次数：" />
                                 <TextBox
-                                    x:Name="NameTextBox"
                                     Width="150"
-                                    Margin="5,0,0,0" />
+                                    Margin="5,0,0,0"
+                                    Text="{Binding NumberTimes, Mode=TwoWay}" />
                             </StackPanel>
 
+                            <StackPanel Margin="10" Orientation="Horizontal">
+                                <TextBlock VerticalAlignment="Center" Text="练习颜色间隔：" />
+                                <TextBox
+                                    Width="150"
+                                    Margin="5,0,0,0"
+                                    Text="{Binding WordOffset, Mode=TwoWay}" />
+                            </StackPanel>
                         </StackPanel>
 
                     </TabItem>
 
 
                     <TabItem Header="词库选择">
-                        <WrapPanel Margin="10" Orientation="Horizontal">
+                        <ItemsControl Margin="10" ItemsSource="{Binding WordCategoriesList, Mode=TwoWay}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
 
-                            <RadioButton
-                                Width="200"
-                                Height="60"
-                                Classes="GigaChips"
-                                GroupName="1">
-                                <Label>aaaa</Label>
-                            </RadioButton>
-                            <RadioButton
-                                Width="200"
-                                Height="60"
-                                Classes="GigaChips"
-                                GroupName="1">
-                                <Label>aaaa</Label>
-                            </RadioButton>
+                                    <RadioButton
+                                        Width="200"
+                                        Height="60"
+                                        Classes="GigaChips"
+                                        GroupName="1"
+                                        IsChecked="{Binding IsChecked, Mode=TwoWay}">
+                                        <Label Content="{Binding Name}" />
+                                    </RadioButton>
 
-                            <RadioButton
-                                Width="200"
-                                Height="60"
-                                Classes="GigaChips"
-                                GroupName="1">
-                                <Label>aaaa</Label>
-                            </RadioButton>
-                            <RadioButton
-                                Width="200"
-                                Height="60"
-                                Classes="GigaChips"
-                                GroupName="1">
-                                <Label>aaaa</Label>
-                            </RadioButton>
-                            <RadioButton
-                                Width="200"
-                                Height="60"
-                                Classes="GigaChips"
-                                GroupName="1">
-                                <Label>aaaa</Label>
-                            </RadioButton>
-                        </WrapPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
 
                     </TabItem>
 
