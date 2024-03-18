@@ -1,5 +1,6 @@
 # EasyExam
  EasyExam(简单考试)刷题，记忆工具。
+![image](https://github.com/xstplan/EasyExam/assets/40187282/0abf54ad-45a3-4d95-9821-4765e3afbe30)
 
 # 🔨主要功能/✅/❌
 1. 刷题 【✅】
