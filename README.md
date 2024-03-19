@@ -18,3 +18,6 @@
 > https://github.com/kikipoulet/SukiUI/wiki
 # 🚀效果预览
 ![image](https://github.com/xstplan/EasyExam/assets/40187282/0abf54ad-45a3-4d95-9821-4765e3afbe30)
+![image](https://github.com/xstplan/EasyExam/assets/40187282/33516147-c295-4a5e-a7a6-e8b6b3909b76)
+![image](https://github.com/xstplan/EasyExam/assets/40187282/e65c4ca1-806c-43b2-a07c-f1ae5eb2c0d5)
+
