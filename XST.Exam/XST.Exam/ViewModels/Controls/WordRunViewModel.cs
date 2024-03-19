@@ -71,12 +71,12 @@ namespace XST.Exam.ViewModels.Controls
                 }
             }
         }
-        private readonly IBaseBaseExamWordService _baseBaseExamWordService;
+        private readonly IBaseExamWordService _baseBaseExamWordService;
 
         private List<BaseExamWord> _runExamWordsList = new List<BaseExamWord>();
 
 
-        public WordRunViewModel(IBaseBaseExamWordService baseBaseExamWordService)
+        public WordRunViewModel(IBaseExamWordService baseBaseExamWordService)
         {
             _baseBaseExamWordService = baseBaseExamWordService;
             Service.ToResponse<List<BaseExamWord>> _examWordsResponse = new Service.ToResponse<List<BaseExamWord>>();

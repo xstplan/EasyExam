@@ -10,7 +10,7 @@ using XST.Service.Service.IService;
 
 namespace XST.Service.Service
 {
-    public class BaseBaseExamWordService : BaseService<BaseExamWord>, IBaseBaseExamWordService
+    public class BaseBaseExamWordService : BaseService<BaseExamWord>, IBaseExamWordService
     {
         public ToResponse<int> CreateBaseExamWord(BaseExamWord examWord)
         {

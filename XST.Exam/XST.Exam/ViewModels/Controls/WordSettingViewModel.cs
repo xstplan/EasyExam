@@ -57,8 +57,8 @@ namespace XST.Exam.ViewModels.Controls
         private ObservableCollection<WordCategory> wordCategoriesList =new ObservableCollection<WordCategory>() ;
        
 
-        IBaseBaseExamWordService _baseBaseExamWordService1 { get; set; }
-        public WordSettingViewModel(IBaseBaseExamWordService baseBaseExamWordService)
+        IBaseExamWordService _baseBaseExamWordService1 { get; set; }
+        public WordSettingViewModel(IBaseExamWordService baseBaseExamWordService)
         {
             _baseBaseExamWordService1 = baseBaseExamWordService;
 

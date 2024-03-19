@@ -32,7 +32,7 @@
                 Height="60"
                 Background="#068F84"
                 Classes="Flat Rounded"
-                Command="{Binding GoSettingCommand}"
+                Command="{Binding GoWordAddCommand}"
                 Content="添加单词"
                 Foreground="Black" />
         </StackPanel>

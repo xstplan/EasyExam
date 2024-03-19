@@ -57,7 +57,7 @@
                     </suki:SukiSideMenuItem.PageContent>
                 </suki:SukiSideMenuItem>
 
-                <suki:SukiSideMenuItem
+                <!--<suki:SukiSideMenuItem
                     Header="模拟面试"
                     IsEnabled="{Binding SideMenuIsEnabled}"
                     Opacity="{Binding SideMenuIsOpacity}">
@@ -67,7 +67,7 @@
                     <suki:SukiSideMenuItem.PageContent>
                         <Grid />
                     </suki:SukiSideMenuItem.PageContent>
-                </suki:SukiSideMenuItem>
+                </suki:SukiSideMenuItem>-->
 
 
             </suki:SukiSideMenu.Items>

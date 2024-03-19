@@ -1,0 +1,33 @@
+<UserControl
+    x:Class="XST.Exam.Views.Controls.WordAddDialog"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <StackPanel Width="450" Margin="2">
+        <TextBlock
+            Margin="10"
+            FontSize="18"
+            FontWeight="Bold"
+            Text="新的单词" />
+        <TextBox Text="{Binding Term}" Watermark="单词" />
+        <TextBox Text="{Binding Definition}" Watermark="单词含义" />
+        <TextBox Text="{Binding Category}" Watermark="词库分类" />
+        <StackPanel
+            Margin="0,35,0,0"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal"
+            Spacing="15">
+            <Button
+                Classes="Rounded"
+                Command="{Binding CloseDialogCommand}"
+                Content="取消" />
+            <Button
+                Classes="Flat Rounded"
+                Command="{Binding SaveWordCommand}"
+                Content="确认" />
+        </StackPanel>
+
+    </StackPanel>
+</UserControl>

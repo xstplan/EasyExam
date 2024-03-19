@@ -9,7 +9,7 @@ using XST.Service.Repository;
 
 namespace XST.Service.Service.IService
 {
-    public interface  IBaseBaseExamWordService
+    public interface  IBaseExamWordService
     {
         ToResponse<BaseExamWord> GetBaseExamWordById(int examWordId);
 

@@ -90,7 +90,7 @@ public partial class App : Application
         InitTable.InitDb();
 
         services.AddTransient<ITestModelService, TestModelService>();
-        services.AddTransient<IBaseBaseExamWordService, BaseBaseExamWordService>();
+        services.AddTransient<IBaseExamWordService, BaseBaseExamWordService>();
       
 
 
@@ -103,8 +103,9 @@ public partial class App : Application
         services.AddTransient<WordRunViewModel>();
         services.AddTransient<WordEndViewModel>();
         services.AddTransient<WordSettingViewModel>();
+        services.AddTransient<WordAddDialogViewModel>();
 
-
+        
         return services.BuildServiceProvider();
 
     }
