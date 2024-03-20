@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using XST.Exam.Model;
-namespace XST.Exam.Common.WordGenerator.WordGenerator
+namespace XST.Exam.Common.Word
 {
 
     /// <summary>

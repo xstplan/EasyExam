@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XST.Exam.Common.WordGenerator
+namespace XST.Exam.Common.Word
 {
     /// <summary>
     /// 写单词类
     /// </summary>
-    public class WritingWordsGenerator
+    public class WritingWordsGenerator: ITrainingGenerator
     {
         private static Random random = new Random();
         public Tuple<StackPanel, string, string, int> GenerateTrainingPanel(string word, string meaning)

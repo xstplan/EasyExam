@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using XST.Exam.Common.WordGenerator.WordGenerator;
+using XST.Exam.Common.Word;
 
-namespace XST.Exam.Common.WordGenerator
+namespace XST.Exam.Common.Word
 {
     public class TrainingGeneratorFactory
     {

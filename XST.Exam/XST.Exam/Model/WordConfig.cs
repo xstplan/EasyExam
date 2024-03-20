@@ -24,5 +24,10 @@ namespace XST.Exam.Model
         /// 分类名称
         /// </summary>
         public static string Category { get; set; } = IniFileHelper.ReadValue(ConfigPath, "WordConfig", "Category");
+
+        /// <summary>
+        /// 随机词汇
+        /// </summary>
+        public static bool AllRandom { get; set; } =Convert.ToBoolean( IniFileHelper.ReadValue(ConfigPath, "WordConfig", "AllRandom"));
     }
 }

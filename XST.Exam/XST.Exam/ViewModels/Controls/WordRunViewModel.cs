@@ -15,14 +15,17 @@ using XST.Exam.Message;
 using XST.Exam.Views.Controls;
 using XST.Service.Service;
 using XST.Model;
-using XST.Exam.Common.WordGenerator;
 using Avalonia.Controls;
 using SukiUI.Controls;
 using Avalonia.Media;
+using XST.Exam.Common.Word;
 namespace XST.Exam.ViewModels.Controls
 {
     public partial class WordRunViewModel : WordViewModel
     {
+        private readonly WordDataHandler _wordDataHandler;
+        private readonly WordGenerator _wordGenerator;
+        private readonly IBaseExamWordService _baseBaseExamWordService;
         /// <summary>
         /// 所有次数
         /// </summary>
@@ -71,59 +74,43 @@ namespace XST.Exam.ViewModels.Controls
                 }
             }
         }
-        private readonly IBaseExamWordService _baseBaseExamWordService;
+    
 
+        private BaseExamWord _currenExamWord=new BaseExamWord();
         private List<BaseExamWord> _runExamWordsList = new List<BaseExamWord>();
 
 
         public WordRunViewModel(IBaseExamWordService baseBaseExamWordService)
         {
             _baseBaseExamWordService = baseBaseExamWordService;
-            Service.ToResponse<List<BaseExamWord>> _examWordsResponse = new Service.ToResponse<List<BaseExamWord>>();
-            if (WordConfig.Category == "全部")
+            _wordDataHandler = new WordDataHandler(baseBaseExamWordService);
+            _wordGenerator = new WordGenerator();
+
+            LoadWords();
+
+        }
+        /// <summary>
+        /// 初始化单词
+        /// </summary>
+        private void LoadWords()
+        {
+            _runExamWordsList = _wordDataHandler.LoadWords(WordConfig.Category, WordConfig.NumberTimes, WordConfig.AllRandom);
+
+            if (_runExamWordsList.Count == 0)
             {
-                _examWordsResponse = _baseBaseExamWordService.GetAllBaseExamWords();
+                Exit();
+                SukiHost.ShowDialog("(*/ω＼*)没有单词数据", true, true);
             }
             else
-            {
-                _examWordsResponse = _baseBaseExamWordService.Where(a=>a.Category== WordConfig.Category);
-            }
-            if (_examWordsResponse.Success)
             {
                 NumberTimes = WordConfig.NumberTimes;
-               
-                //_examWordsResponse.Data
+                if (_runExamWordsList.Count < NumberTimes)
+                {
+                    NumberTimes = _runExamWordsList.Count;
+                }
                 CurrentnumberTimes = 1;
-                Random random = new Random();
-                int n = _examWordsResponse.Data.Count;
-                //筛选去重
-                while (n > 1)
-                {
-                    n--;
-                    int k = random.Next(n + 1);
-                    BaseExamWord value = _examWordsResponse.Data[k];
-                    _examWordsResponse.Data[k] = _examWordsResponse.Data[n];
-                    _examWordsResponse.Data[n] = value;
-                }
-
-                _runExamWordsList = _examWordsResponse.Data.Take(NumberTimes).ToList();
-
-                if (_runExamWordsList.Count > 0)
-                {
-                    if (_runExamWordsList.Count < NumberTimes)
-                    {
-                        NumberTimes = _runExamWordsList.Count;
-                    }
-                    WordGenerator();
-                }
-            }
-            else
-            {
-                NumberTimes = 0;
-                Exit();
-
-                SukiHost.ShowDialog("(*/ω＼*)没有单词数据",true,true);
-              //  SukiHost.ShowToast("提示", "(*/ω＼*)没有单词数据", TimeSpan.FromSeconds(5), () => Console.WriteLine("Toast clicked !"));
+                _currenExamWord = _runExamWordsList[CurrentnumberTimes-1];
+                WordGenerator();
             }
         }
         /// <summary>
@@ -142,17 +129,20 @@ namespace XST.Exam.ViewModels.Controls
             }
         
         }
+
+
         /// <summary>
         /// 生成单词规则器
         /// </summary>
         private void WordGenerator()
         {
             UserAnswerFontColor = new SolidColorBrush(Colors.Black);
-            ITrainingGenerator _trainingGenerator = TrainingGeneratorFactory.GetRandomGenerator(1, 2);
-            var result = _trainingGenerator.GenerateTrainingPanel(_runExamWordsList[CurrentnumberTimes - 1].Term, _runExamWordsList[CurrentnumberTimes - 1].Definition);
-            StackControlContet = result.Item1;
-            CurrentWordAnswer = result.Item2;
-            CurrentMeaning = result.Item3;
+
+            var wordData = _wordGenerator.GenerateWord(_currenExamWord, CurrentnumberTimes);
+            StackControlContet = wordData.Item1;
+            CurrentWordAnswer = wordData.Item2;
+            CurrentMeaning = wordData.Item3;
+        
         }
 
         /// <summary>
@@ -167,11 +157,15 @@ namespace XST.Exam.ViewModels.Controls
             }
             else
             {
+                
+                
                 if (UserAnswer.ToLower() == currentWordAnswer.ToLower())
                 {
                     CurrentnumberTimes++;
+                    _currenExamWord = _runExamWordsList[CurrentnumberTimes - 1];
                     WordGenerator();
                     UserAnswer = "";
+                 
                 }
                 else
                 {
