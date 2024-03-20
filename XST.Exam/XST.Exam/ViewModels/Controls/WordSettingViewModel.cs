@@ -50,6 +50,23 @@ namespace XST.Exam.ViewModels.Controls
                 }
             }
         }
+
+        /// <summary>
+        /// 随机词汇
+        /// </summary>
+        /// 
+        private bool _allRandom = WordConfig.AllRandom;
+        public bool AllRandom
+        {
+            get => _allRandom;
+            set
+            {
+                if (SetProperty(ref _allRandom, value)) // 设置属性值并检查是否有改变
+                {
+                    WordConfig.AllRandom = _allRandom;
+                }
+            }
+        }
         #endregion
 
 
