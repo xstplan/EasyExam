@@ -1,4 +1,6 @@
 # EasyExam
+<img src="https://img.shields.io/badge/.NET-8.0-brightgreen.svg?style=flat">
+
 一款单词训练，刷题，记忆的工具。
 > 声明：此项目发布于 GitHub，免费且作为开源学习使用，使用业余时间进行持续开发，未经作者允许请勿用于商业用途！
 
