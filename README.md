@@ -1,4 +1,8 @@
-# EasyExam
+<div align="center"> 
+<h1>EasyExam</h1>
+
+![256-256](https://github.com/xstplan/EasyExam/assets/40187282/2bbb7ea5-f513-4717-9df8-8c9adadb8c8b)
+  </div>
 <img src="https://img.shields.io/badge/.NET-8.0-brightgreen.svg?style=flat">
 
 一款单词训练，刷题，记忆的工具。
