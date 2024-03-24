@@ -12,15 +12,15 @@ namespace XST.Exam.Common.Word
         /// <summary>
         /// 生成器接口
         /// </summary>
-        /// <param name="word">单词</param>
-        /// <param name="meaning">单词含义</param>
+        /// <param name="problem">问题：答案</param>
+        /// <param name="meaning">含义或说明</param>
         /// <returns>
         /// 返回一个Tuple对象，该对象包含以下内容：
-        /// Item1: 一个StackPanel，用于显示单词和含义的相关信息。
-        /// Item2: 单词的字符串表示。
+        /// Item1: 一个StackPanel，用于显示单词和含义的相关信息或布局。
+        /// Item2: 单词的字符串表示或提示。
         /// Item3: 单词含义的字符串表示。
         /// Item4: 整数值，难度。
         /// </returns>
-        Tuple<StackPanel, string, string,int> GenerateTrainingPanel(string word, string meaning);
+        Tuple<StackPanel, string, string,int> GenerateTrainingPanel(string problem, string meaning);
     }
 }
