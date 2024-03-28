@@ -21,5 +21,12 @@ namespace XST.Exam.ViewModels.Controls
             WeakReferenceMessenger.Default.Send(new LockMenuMessage(true));
             WeakReferenceMessenger.Default.Send(new WordTrainMessage(new WordStart()));
         }
+
+        [RelayCommand]
+        public void WordEnd()
+        {
+            WeakReferenceMessenger.Default.Send(new LockMenuMessage(true));
+            WeakReferenceMessenger.Default.Send(new WordTrainMessage(new WordEnd()));
+        }
     }
 }

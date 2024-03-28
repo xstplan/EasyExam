@@ -11,6 +11,11 @@ namespace XST.Exam.Model
     {
 
         public static string ConfigPath= "config/config.ini";
+
+        /// <summary>
+        /// 单词练习类型
+        /// </summary>
+        public static bool NumberTimesType { get; set; } = Convert.ToBoolean(IniFileHelper.ReadValue(ConfigPath, "WordConfig", "NumberTimesType"));
         /// <summary>
         /// 练习多少个
         /// </summary>

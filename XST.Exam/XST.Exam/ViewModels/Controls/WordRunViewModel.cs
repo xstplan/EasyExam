@@ -26,6 +26,8 @@ namespace XST.Exam.ViewModels.Controls
         private readonly WordDataHandler _wordDataHandler;
         private readonly WordGenerator _wordGenerator;
         private readonly IBaseExamWordService _baseBaseExamWordService;
+
+        #region 属性
         /// <summary>
         /// 所有次数
         /// </summary>
@@ -74,20 +76,18 @@ namespace XST.Exam.ViewModels.Controls
                 }
             }
         }
-    
-
+        #endregion
+        /// <summary>
+        /// 当前单词
+        /// </summary>
         private BaseExamWord _currenExamWord=new BaseExamWord();
         private List<BaseExamWord> _runExamWordsList = new List<BaseExamWord>();
-
-
-        public WordRunViewModel(IBaseExamWordService baseBaseExamWordService)
+        public WordRunViewModel(IBaseExamWordService baseBaseExamWordService,IBaseTrainingRecordsService baseTrainingRecordsService)
         {
             _baseBaseExamWordService = baseBaseExamWordService;
-            _wordDataHandler = new WordDataHandler(baseBaseExamWordService);
+            _wordDataHandler = new WordDataHandler(baseBaseExamWordService, baseTrainingRecordsService);
             _wordGenerator = new WordGenerator();
-
             LoadWords();
-
         }
         /// <summary>
         /// 初始化单词
@@ -153,25 +153,28 @@ namespace XST.Exam.ViewModels.Controls
         {
             if (CurrentnumberTimes >= NumberTimes)
             {
-                Exit();
+                WordEnd();
             }
             else
             {
                 
-                
                 if (UserAnswer.ToLower() == currentWordAnswer.ToLower())
                 {
-                    CurrentnumberTimes++;
-                    _currenExamWord = _runExamWordsList[CurrentnumberTimes - 1];
-                    WordGenerator();
                     UserAnswer = "";
-                 
+                    NextWord();
                 }
                 else
                 {
+                    NextWord();
                     SukiHost.ShowToast("提示", "(*/ω＼*)你填错了", TimeSpan.FromSeconds(5), () => Console.WriteLine("Toast clicked !"));
                 }
             }
+        }
+        public void NextWord() 
+        {
+            CurrentnumberTimes++;
+            _currenExamWord = _runExamWordsList[CurrentnumberTimes - 1];
+            WordGenerator();
         }
       
     }

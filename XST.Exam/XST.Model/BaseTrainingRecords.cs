@@ -12,7 +12,7 @@ namespace XST.Model
     { 
         
         /// <summary>
-       /// 单词唯一标识符。
+       /// 训练记录唯一标识符。
        /// </summary>
         [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
         public int Id { get; set; }
@@ -40,7 +40,7 @@ namespace XST.Model
         [SugarColumn(IsNullable = true)]
         public int? NumberTimes { get; set; }
         /// <summary>
-        /// 成功
+        /// 成功次数
         /// </summary>
         [SugarColumn(IsNullable = true)]
         public int? SuccessNumber { get; set; }
@@ -55,6 +55,11 @@ namespace XST.Model
         /// </summary>
         [SugarColumn(IsNullable = true)]
         public DateTime CreateDateTime { get; set; }
+        /// <summary>
+        /// 上次训练时间
+        /// </summary>
+        [SugarColumn(IsNullable = true)]
+        public DateTime LastTrainingTime { get; set; }
 
         /// <summary>
         /// 是否牢记

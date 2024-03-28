@@ -91,7 +91,8 @@ public partial class App : Application
 
         services.AddTransient<ITestModelService, TestModelService>();
         services.AddTransient<IBaseExamWordService, BaseBaseExamWordService>();
-      
+        services.AddTransient<IBaseTrainingRecordsService, BaseTrainingRecordsService>();
+
 
 
         //Viewmodel

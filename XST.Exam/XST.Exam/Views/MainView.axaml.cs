@@ -23,9 +23,12 @@ public partial class MainView : SukiWindow
 
     private void SukiWindow_Closing(object? sender, Avalonia.Controls.WindowClosingEventArgs e)
     {
+        IniFileHelper.WriteValue(WordConfig.ConfigPath, "WordConfig", "NumberTimesType", WordConfig.NumberTimesType.ToString());
         IniFileHelper.WriteValue(WordConfig.ConfigPath, "WordConfig", "NumberTimes", WordConfig.NumberTimes.ToString());
         IniFileHelper.WriteValue(WordConfig.ConfigPath, "WordConfig", "WordOffset", WordConfig.WordOffset.ToString());
         IniFileHelper.WriteValue(WordConfig.ConfigPath, "WordConfig", "Category", WordConfig.Category);
+   
+        
 
     }
 }

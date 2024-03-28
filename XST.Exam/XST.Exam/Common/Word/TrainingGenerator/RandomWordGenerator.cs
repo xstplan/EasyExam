@@ -46,6 +46,10 @@ namespace XST.Exam.Common.Word
             return new Tuple<StackPanel, string, string, int>(stackPanel, word, meaning, 1);
         }
 
+        /// <summary>
+        /// 创建颜色单词
+        /// </summary>
+        /// <returns></returns>
         private static TextBlock CreateColoredTextBlock() 
         {
             TextBlock textBlock = new TextBlock
@@ -57,6 +61,11 @@ namespace XST.Exam.Common.Word
             };
             return textBlock;
         }
+        /// <summary>
+        /// 随机隐藏字母
+        /// </summary>
+        /// <param name="word"></param>
+        /// <returns></returns>
         private string GenerateDisplayWord(string word)
         {
             StringBuilder displayWordBuilder = new StringBuilder(word);

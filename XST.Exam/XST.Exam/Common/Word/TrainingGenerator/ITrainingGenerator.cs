@@ -5,9 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using XST.Model;
+
 namespace XST.Exam.Common.Word
 {
-    public interface ITrainingGenerator
+    public interface ITrainingGenerator 
     {
         /// <summary>
         /// 生成器接口
@@ -20,6 +22,7 @@ namespace XST.Exam.Common.Word
         /// Item2: 单词的字符串表示或提示。
         /// Item3: 单词含义的字符串表示。
         /// Item4: 整数值，难度。
+        /// Item5: 类型。
         /// </returns>
         Tuple<StackPanel, string, string,int> GenerateTrainingPanel(string problem, string meaning);
     }

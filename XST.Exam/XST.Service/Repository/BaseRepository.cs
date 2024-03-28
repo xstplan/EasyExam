@@ -87,6 +87,7 @@ namespace XST.Service.Repository
         /// <returns></returns>
         public int Update(T entity, Expression<Func<T, object>> expression, Expression<Func<T, bool>> where)
         {
+            
             return Context.Updateable(entity).UpdateColumns(expression).Where(where).ExecuteCommand();
         }
 

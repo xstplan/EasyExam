@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using XST.Model;
 using XST.Service.Service.IService;
 
@@ -15,10 +16,12 @@ namespace XST.Exam.Common.Word
     public class WordDataHandler
     {
         private readonly IBaseExamWordService _baseBaseExamWordService;
-        private readonly Random _random ;
-        public WordDataHandler(IBaseExamWordService baseBaseExamWordService)
+        private readonly IBaseTrainingRecordsService _baseTrainingRecordsService;
+        private readonly Random _random;
+        public WordDataHandler(IBaseExamWordService baseBaseExamWordService, IBaseTrainingRecordsService baseTrainingRecordsService)
         {
             _baseBaseExamWordService = baseBaseExamWordService;
+            _baseTrainingRecordsService = baseTrainingRecordsService;
             _random = new Random();
         }
         /// <summary>
@@ -33,7 +36,7 @@ namespace XST.Exam.Common.Word
             if (category == "全部")
             {
                 examWordsResponse = _baseBaseExamWordService.GetAllBaseExamWords();
-                
+
             }
             else
             {
@@ -55,7 +58,7 @@ namespace XST.Exam.Common.Word
                         examWordsResponse.Data[n] = value;
                     }
 
-                 return examWordsResponse.Data.Take(numberTimes).ToList();
+                    return examWordsResponse.Data.Take(numberTimes).ToList();
                 }
                 else
                 {
@@ -68,5 +71,14 @@ namespace XST.Exam.Common.Word
             }
         }
 
+
+        public void AddWordsTraningRecords(List<BaseTrainingRecords> baseTrainingRecordsList)
+        {
+            foreach (var item in baseTrainingRecordsList)
+            {
+                _baseTrainingRecordsService.CreateOrUpdateBaseTrainingRecord(item);
+            }
+
+        }
     }
 }
