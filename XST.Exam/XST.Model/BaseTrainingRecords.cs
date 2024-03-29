@@ -18,54 +18,40 @@ namespace XST.Model
         public int Id { get; set; }
 
         /// <summary>
-        /// 训练类型Id 如单词，词汇，句子等类型，如“单词”
+        /// 被测试的单词的ID
         /// </summary>
-        [SugarColumn(IsNullable = true)]
-        public string? TypeId { get; set; }
-        /// <summary>
-        /// 训练的内容Id，如单词：苹果Id为1，那么TrainingId也是1
-        /// </summary>
-        [SugarColumn(IsNullable = true)]
-        public string? TrainingId { get; set; }
+        [SugarColumn(IsNullable = false)] 
+        public int WordID { get; set; }
 
         /// <summary>
-        /// 难度
+        /// 答题是否正确
         /// </summary>
-        [SugarColumn(IsNullable = true)]
-        public int? DifficultyLevel { get; set; }
+        [SugarColumn(IsNullable = false)] 
+        public bool IsCorrect { get; set; }
 
         /// <summary>
-        /// 次数
+        /// 答题的时间
         /// </summary>
-        [SugarColumn(IsNullable = true)]
-        public int? NumberTimes { get; set; }
-        /// <summary>
-        /// 成功次数
-        /// </summary>
-        [SugarColumn(IsNullable = true)]
-        public int? SuccessNumber { get; set; }
+        [SugarColumn(IsNullable = true)] 
+        public DateTime AnswerDateTime { get; set; }
 
         /// <summary>
-        /// 错误次数
+        /// 上次答题的时间
         /// </summary>
         [SugarColumn(IsNullable = true)]
-        public int? ErrorNumber { get; set; }
-        /// <summary>
-        /// 创建时间
-        /// </summary>
-        [SugarColumn(IsNullable = true)]
-        public DateTime CreateDateTime { get; set; }
-        /// <summary>
-        /// 上次训练时间
-        /// </summary>
-        [SugarColumn(IsNullable = true)]
-        public DateTime LastTrainingTime { get; set; }
+        public DateTime? LastAttemptDateTime { get; set; }
 
         /// <summary>
-        /// 是否牢记
+        /// 尝试答题的次数
+        /// </summary>
+        [SugarColumn(IsNullable = true)] 
+        public int AttemptsCount { get; set; }
+
+        /// <summary>
+        /// 是否已经掌握该单词
         /// </summary>
         [SugarColumn(IsNullable = true)]
-        public bool Islearn { get; set; }
+        public bool IsMastered { get; set; }
     }
 
 }

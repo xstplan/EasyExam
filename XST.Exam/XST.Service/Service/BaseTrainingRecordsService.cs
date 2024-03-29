@@ -95,26 +95,6 @@ namespace XST.Service.Service
                 ? new ToResponse<BaseTrainingRecords>() { Data = item, Success = true, Message = "成功" }
                 : new ToResponse<BaseTrainingRecords>() { Data = null, Success = false, Message = "不存在" };
         }
-        public ToResponse<int> CreateOrUpdateBaseTrainingRecord(BaseTrainingRecords trainingRecord)
-        {
-
-            if (trainingRecord.Id == null) { }
-            // 首先判断记录是否存在
-            var existingRecord = Context.Queryable<BaseTrainingRecords>().Single(a => a.TrainingId == trainingRecord.TrainingId);
-            // var existingRecord = Where(a=>a.TrainingId==trainingRecord.TrainingId).;
-            if (existingRecord != null)
-            {
-                trainingRecord.ErrorNumber = existingRecord.ErrorNumber + trainingRecord.ErrorNumber;
-                trainingRecord.SuccessNumber = existingRecord.SuccessNumber + trainingRecord.SuccessNumber;
-                // 如果记录已经存在，则更新它
-                return UpdateBaseTrainingRecord(trainingRecord);
-            }
-            else
-            {
-
-                // 如果记录不存在，则创建新记录
-                return CreateBaseTrainingRecord(trainingRecord);
-            }
-        }
+        
     }
 }

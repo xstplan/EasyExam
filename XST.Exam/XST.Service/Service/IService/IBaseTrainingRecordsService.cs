@@ -29,7 +29,7 @@ namespace XST.Service.Service.IService
         ToResponse<List<BaseTrainingRecords>> Where(Expression<Func<BaseTrainingRecords, bool>> whereExpression);
 
         ToResponse<int> UpdateBaseTrainingRecord(Expression<Func<BaseTrainingRecords, object>> whereExpression, BaseTrainingRecords trainingRecord);
-        ToResponse<int> CreateOrUpdateBaseTrainingRecord(BaseTrainingRecords trainingRecord);
+  
 
     }
 }
