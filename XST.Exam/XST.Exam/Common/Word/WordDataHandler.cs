@@ -76,7 +76,7 @@ namespace XST.Exam.Common.Word
         {
             foreach (var item in baseTrainingRecordsList)
             {
-                
+                _baseTrainingRecordsService.CreateBaseTrainingRecord (item);
             }
 
         }

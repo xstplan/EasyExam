@@ -57,11 +57,11 @@ namespace XST.Exam.ViewModels.Controls
         private string currentMeaning = "请输入答案：";
 
         [ObservableProperty]
-        private SolidColorBrush userAnswerFontColor=new SolidColorBrush(Colors.Black);
+        private SolidColorBrush userAnswerFontColor = new SolidColorBrush(Colors.Black);
         /// <summary>
         /// 输入答案
         /// </summary>
-        private string _userAnswer="";
+        private string _userAnswer = "";
         public string UserAnswer
         {
             get => _userAnswer;
@@ -78,11 +78,11 @@ namespace XST.Exam.ViewModels.Controls
         }
         #endregion
         /// <summary>
-        /// 当前单词
+        /// 当前选择的单词
         /// </summary>
-        private BaseExamWord _currenExamWord=new BaseExamWord();
+        private BaseExamWord _currenExamWord = new BaseExamWord();
         private List<BaseExamWord> _runExamWordsList = new List<BaseExamWord>();
-        public WordRunViewModel(IBaseExamWordService baseBaseExamWordService,IBaseTrainingRecordsService baseTrainingRecordsService)
+        public WordRunViewModel(IBaseExamWordService baseBaseExamWordService, IBaseTrainingRecordsService baseTrainingRecordsService)
         {
             _baseBaseExamWordService = baseBaseExamWordService;
             _wordDataHandler = new WordDataHandler(baseBaseExamWordService, baseTrainingRecordsService);
@@ -109,7 +109,7 @@ namespace XST.Exam.ViewModels.Controls
                     NumberTimes = _runExamWordsList.Count;
                 }
                 CurrentnumberTimes = 1;
-                _currenExamWord = _runExamWordsList[CurrentnumberTimes-1];
+                _currenExamWord = _runExamWordsList[CurrentnumberTimes - 1];
                 WordGenerator();
             }
         }
@@ -117,7 +117,7 @@ namespace XST.Exam.ViewModels.Controls
         /// 检查是否和答案一致
         /// </summary>
         /// <param name="thisUserAnswer"></param>
-        public void CheckAnswer(string thisUserAnswer) 
+        public void CheckAnswer(string thisUserAnswer)
         {
             if (thisUserAnswer.ToLower() == CurrentWordAnswer.ToLower())
             {
@@ -127,7 +127,7 @@ namespace XST.Exam.ViewModels.Controls
             {
                 UserAnswerFontColor = new SolidColorBrush(Colors.Black);
             }
-        
+
         }
 
 
@@ -142,7 +142,7 @@ namespace XST.Exam.ViewModels.Controls
             StackControlContet = wordData.Item1;
             CurrentWordAnswer = wordData.Item2;
             CurrentMeaning = wordData.Item3;
-        
+
         }
 
         /// <summary>
@@ -153,29 +153,46 @@ namespace XST.Exam.ViewModels.Controls
         {
             if (CurrentnumberTimes >= NumberTimes)
             {
+                _wordDataHandler.AddWordsTraningRecords(GetRecords());
                 WordEnd();
             }
             else
             {
-                
+                BaseTrainingRecords TrainingRecordsObj = new BaseTrainingRecords()
+                {
+                    WordID = _currenExamWord.Id,
+                    AnswerDateTime = DateTime.Now,
+                    AttemptsCount = 0,
+                    LastAttemptDateTime = DateTime.Now,
+                };
+                //判断当前答案是否正确
                 if (UserAnswer.ToLower() == currentWordAnswer.ToLower())
                 {
-                    UserAnswer = "";
+                   
+                    TrainingRecordsObj.IsCorrect = true;
+                    SetRecords(TrainingRecordsObj);
                     NextWord();
                 }
                 else
                 {
+                    TrainingRecordsObj.IsCorrect = true;
+                    SetRecords(TrainingRecordsObj);
                     NextWord();
                     SukiHost.ShowToast("提示", "(*/ω＼*)你填错了", TimeSpan.FromSeconds(5), () => Console.WriteLine("Toast clicked !"));
                 }
             }
         }
-        public void NextWord() 
+        /// <summary>
+        /// 下个单词
+        /// </summary>
+        /// <remarks>_currenExamWord重新赋值，请注意调用顺序</remarks>
+        public void NextWord()
         {
+            UserAnswer = "";
             CurrentnumberTimes++;
             _currenExamWord = _runExamWordsList[CurrentnumberTimes - 1];
             WordGenerator();
         }
-      
+
     }
 }

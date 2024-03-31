@@ -25,6 +25,7 @@ namespace XST.Exam.ViewModels.Controls
         [RelayCommand]
         private void Go()
         {
+            ClearRecords();
             //WordConfig.NumberTimes = 5;
             WeakReferenceMessenger.Default.Send(new WordTrainMessage(new WordRun()));
             WeakReferenceMessenger.Default.Send(new LockMenuMessage(false));

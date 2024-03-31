@@ -15,6 +15,7 @@ namespace XST.Exam.ViewModels.Controls
     {
         public WordEndViewModel()
         {
+
         }
     }
 }
