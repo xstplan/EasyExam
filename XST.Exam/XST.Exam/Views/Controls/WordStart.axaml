@@ -33,7 +33,7 @@
                 Background="#068F84"
                 Classes="Flat Rounded"
                 Command="{Binding GoWordAddCommand}"
-                Content="添加单词"
+                Content="单词管理"
                 Foreground="Black" />
         </StackPanel>
     </Grid>

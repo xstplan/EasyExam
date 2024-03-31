@@ -53,7 +53,7 @@ namespace XST.Exam.ViewModels.Controls
             }
             else
             {
-                SukiHost.ShowDialog(_baseBaseExamWordToResponse.Message);
+                SukiHost.ShowToast(_baseBaseExamWordToResponse.Message, TimeSpan.FromSeconds(5));
             }
         }
         [RelayCommand]

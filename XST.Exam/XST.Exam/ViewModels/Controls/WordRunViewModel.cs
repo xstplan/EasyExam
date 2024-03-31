@@ -151,13 +151,7 @@ namespace XST.Exam.ViewModels.Controls
         [RelayCommand]
         public void Go()
         {
-            if (CurrentnumberTimes >= NumberTimes)
-            {
-                _wordDataHandler.AddWordsTraningRecords(GetRecords());
-                WordEnd();
-            }
-            else
-            {
+                    
                 BaseTrainingRecords TrainingRecordsObj = new BaseTrainingRecords()
                 {
                     WordID = _currenExamWord.Id,
@@ -168,19 +162,28 @@ namespace XST.Exam.ViewModels.Controls
                 //判断当前答案是否正确
                 if (UserAnswer.ToLower() == currentWordAnswer.ToLower())
                 {
-                   
                     TrainingRecordsObj.IsCorrect = true;
                     SetRecords(TrainingRecordsObj);
-                    NextWord();
                 }
                 else
                 {
-                    TrainingRecordsObj.IsCorrect = true;
+                    TrainingRecordsObj.IsCorrect = false;
                     SetRecords(TrainingRecordsObj);
-                    NextWord();
                     SukiHost.ShowToast("提示", "(*/ω＼*)你填错了", TimeSpan.FromSeconds(5), () => Console.WriteLine("Toast clicked !"));
                 }
+
+            if (CurrentnumberTimes >= NumberTimes)
+            {
+                _wordDataHandler.AddWordsTraningRecords(GetRecords());
+                WordEnd();
             }
+            else
+            {
+
+                NextWord();
+            }
+
+
         }
         /// <summary>
         /// 下个单词
