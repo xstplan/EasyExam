@@ -70,17 +70,22 @@ namespace XST.Exam.Common.Word
                 return new List<BaseExamWord>();
             }
         }
-
-
         public void AddWordsTraningRecords(List<BaseTrainingRecords> baseTrainingRecordsList)
         {
-            Task.Run(() => {
+            Task.Run(() =>
+            {
                 foreach (var item in baseTrainingRecordsList)
                 {
                     _baseTrainingRecordsService.CreateBaseTrainingRecord(item);
                 }
             });
-         
+        }
+        public void GetWordsTraningRecords()
+        {
+            var startDate = DateTime.Today.AddDays(1 - DateTime.Today.Day);
+            var endDate = startDate.AddMonths(1).AddDays(-1);
+            var list = _baseTrainingRecordsService.Where(a => !a.IsCorrect&& a.AnswerDateTime >= startDate && // 在本月范围内
+                 a.AnswerDateTime <= endDate);
 
         }
     }

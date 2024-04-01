@@ -30,6 +30,11 @@ namespace XST.Model
         public bool IsCorrect { get; set; }
 
         /// <summary>
+        /// 答题用时
+        /// </summary>
+        [SugarColumn(IsNullable = true)]
+        public int AnswerTime { get; set; }
+        /// <summary>
         /// 答题的时间
         /// </summary>
         [SugarColumn(IsNullable = true)] 
