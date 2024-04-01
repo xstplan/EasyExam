@@ -65,7 +65,7 @@ namespace XST.Exam.ViewModels.Controls
                 Star2 = new SolidColorBrush(Avalonia.Media.Color.Parse("#ECBF0B"));
                 Star3 = new SolidColorBrush(Avalonia.Media.Color.Parse("#E5E5E5"));
                 Star3 = new SolidColorBrush(Avalonia.Media.Color.Parse("#E5E5E5"));
-                Tip = "您已经做得相当不错，继续保持";
+                Tip = "还可以，继续加油吧";
 
             }
             else if(percentCorrect >= 30)
@@ -73,7 +73,7 @@ namespace XST.Exam.ViewModels.Controls
                 Star1 = new SolidColorBrush(Avalonia.Media.Color.Parse("#ECBF0B"));
                 Star2 = new SolidColorBrush(Avalonia.Media.Color.Parse("#E5E5E5"));
               
-                Tip = "您已经很棒了，继续努力提高吧！";
+                Tip = "错误有点多，继续努力提高吧！";
             }
             else
             {

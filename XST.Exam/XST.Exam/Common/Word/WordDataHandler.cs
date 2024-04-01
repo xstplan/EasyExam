@@ -74,10 +74,13 @@ namespace XST.Exam.Common.Word
 
         public void AddWordsTraningRecords(List<BaseTrainingRecords> baseTrainingRecordsList)
         {
-            foreach (var item in baseTrainingRecordsList)
-            {
-                _baseTrainingRecordsService.CreateBaseTrainingRecord (item);
-            }
+            Task.Run(() => {
+                foreach (var item in baseTrainingRecordsList)
+                {
+                    _baseTrainingRecordsService.CreateBaseTrainingRecord(item);
+                }
+            });
+         
 
         }
     }
