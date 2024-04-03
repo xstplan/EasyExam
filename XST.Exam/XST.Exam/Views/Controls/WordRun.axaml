@@ -35,7 +35,8 @@
                 Classes="Outlined"
                 Command="{Binding Exit}"
                 Content="退出训练"
-                DockPanel.Dock="Right" />
+                DockPanel.Dock="Right"
+                HotKey="Escape" />
 
 
             <Border />
@@ -111,7 +112,7 @@
                     Classes="Flat Rounded"
                     Command="{Binding GoCommand}"
                     Content="确认答案"
-                    IsDefault="True" />
+                    HotKey="Enter" />
 
             </Grid>
         </Grid>

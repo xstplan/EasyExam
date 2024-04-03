@@ -22,11 +22,13 @@
             <Button
                 Classes="Rounded"
                 Command="{Binding CloseDialogCommand}"
-                Content="取消" />
+                Content="取消"
+                HotKey="Escape" />
             <Button
                 Classes="Flat Rounded"
                 Command="{Binding SaveWordCommand}"
-                Content="确认" />
+                Content="确认"
+                HotKey="Enter" />
         </StackPanel>
 
     </StackPanel>

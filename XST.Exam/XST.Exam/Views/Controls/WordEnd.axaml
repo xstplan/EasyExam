@@ -159,7 +159,8 @@
                 Height="60"
                 Classes="Flat Rounded"
                 Command="{Binding ExitCommand}"
-                Content="确认" />
+                Content="确认"
+                HotKey="Enter" />
         </Grid>
     </suki:GlassCard>
 </UserControl>
