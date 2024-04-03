@@ -23,14 +23,9 @@ namespace XST.Exam.ViewModels.Page
         [ObservableProperty]
         private object stackControlContet = null;
 
-        private ITestModelService TestModelService { get; set; }
+    
         public WordTrainViewModel(ITestModelService testModelService)
         {
-            TestModelService = testModelService;
-
-            TestModel testModel = new TestModel();
-            testModel.Name = "Test4";
-            TestModelService.CreateTest(testModel);
             WeakReferenceMessenger.Default.Register<WordTrainMessage>(this, SwitchWordControls);
             StackControlContet = new WordStart();
         }

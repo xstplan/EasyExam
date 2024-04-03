@@ -169,7 +169,7 @@ namespace XST.Exam.ViewModels.Controls
                 {
                     TrainingRecordsObj.IsCorrect = false;
                     SetRecords(TrainingRecordsObj);
-                    SukiHost.ShowToast("提示", "(*/ω＼*)你填错了", TimeSpan.FromSeconds(5), () => Console.WriteLine("Toast clicked !"));
+                    SukiHost.ShowToast("提示", "(*/ω＼*)你填错了，正确答案："+ currentWordAnswer, TimeSpan.FromSeconds(5), () => Console.WriteLine("Toast clicked !"));
                 }
 
             if (CurrentnumberTimes >= NumberTimes)

@@ -27,7 +27,8 @@ public partial class MainView : SukiWindow
         IniFileHelper.WriteValue(WordConfig.ConfigPath, "WordConfig", "NumberTimes", WordConfig.NumberTimes.ToString());
         IniFileHelper.WriteValue(WordConfig.ConfigPath, "WordConfig", "WordOffset", WordConfig.WordOffset.ToString());
         IniFileHelper.WriteValue(WordConfig.ConfigPath, "WordConfig", "Category", WordConfig.Category);
-   
+        IniFileHelper.WriteValue(WordConfig.ConfigPath, "WordConfig", "Remember", WordConfig.Remember.ToString());
+
         
 
     }

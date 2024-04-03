@@ -86,7 +86,7 @@ namespace XST.Exam.Common.Word
             var endDate = startDate.AddMonths(1).AddDays(-1);
             var list = _baseTrainingRecordsService.Where(a => !a.IsCorrect&& a.AnswerDateTime >= startDate && // 在本月范围内
                  a.AnswerDateTime <= endDate);
-
         }
+       
     }
 }

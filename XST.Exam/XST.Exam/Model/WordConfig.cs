@@ -34,5 +34,13 @@ namespace XST.Exam.Model
         /// 随机词汇
         /// </summary>
         public static bool AllRandom { get; set; } =Convert.ToBoolean( IniFileHelper.ReadValue(ConfigPath, "WordConfig", "AllRandom"));
+        
+        /// <summary>
+        /// 是否重复记住步骤
+        /// </summary>
+        public static bool Remember { get; set; } = Convert.ToBoolean(IniFileHelper.ReadValue(ConfigPath, "WordConfig", "Remember"));
+
+        
+
     }
 }
